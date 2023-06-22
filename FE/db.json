@@ -1,0 +1,308 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Thai Tea"
+    },
+    {
+      "id": 2,
+      "name": "Coffee"
+    },
+    {
+      "id": 3,
+      "name": "Choco"
+    },
+    {
+      "id": 4,
+      "name": "Creamy"
+    },
+    {
+      "id": 5,
+      "name": "Snack"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "categoryId": 1,
+      "name": "Original Thai Tea",
+      "price": 14000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/c4a978e3-417d-48c4-835f-a3d26a6445d2_70c85e57-8334-4b0c-9ce5-1561c7dc9bc4_Go-Biz_20190513_204642.jpeg?auto=format"
+    },
+    {
+      "id": 2,
+      "categoryId": 1,
+      "name": "Green Thai Tea",
+      "price": 15000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/ac0ae107-b50b-46a6-99cf-691a04b22af1_42205369-2a61-440e-a438-7edbaeae33b9_Go-Biz_20190513_204801.jpeg?auto=format"
+    },
+    {
+      "id": 3,
+      "categoryId": 1,
+      "name": "Choco Original Thai Tea",
+      "price": 16000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/ec9a5d7b-5cdf-4045-88b4-20c26ba26ac1_6f7b0cef-ad70-43b7-bbe3-e0d9a011eb23_Go-Biz_20190513_205344.jpeg?auto=format"
+    },
+    {
+      "id": 4,
+      "categoryId": 1,
+      "name": "Choco Green Thai Tea",
+      "price": 15000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/2e86d8a5-d7b9-4557-8823-2e4454603a42_34d1b0f5-5f30-4a91-8f1e-148ff9dab51a_Go-Biz_20190513_205538.jpeg?auto=format"
+    },
+    {
+      "id": 5,
+      "categoryId": 1,
+      "name": "Coffee Green Thai Tea",
+      "price": 16000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/efa90715-6ca2-41a8-9861-efae83e32995_17c0afb3-eaef-4084-ac26-3d563f2115e2_Go-Biz_20190513_205724.jpeg?auto=format"
+    },
+    {
+      "id": 6,
+      "categoryId": 2,
+      "name": "Coffee Original",
+      "price": 15000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/61220de5-5827-45a3-b31e-cefd02d2ec57_d6a0f18f-1c15-4ff7-9ccc-01c4b6a84e75_Go-Biz_20190513_212845.jpeg?auto=format"
+    },
+    {
+      "id": 7,
+      "categoryId": 2,
+      "name": "Coffee Hazelnut",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/61220de5-5827-45a3-b31e-cefd02d2ec57_d6a0f18f-1c15-4ff7-9ccc-01c4b6a84e75_Go-Biz_20190513_212845.jpeg?auto=format"
+    },
+    {
+      "id": 8,
+      "categoryId": 2,
+      "name": "Coffee Caramel",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/61220de5-5827-45a3-b31e-cefd02d2ec57_d6a0f18f-1c15-4ff7-9ccc-01c4b6a84e75_Go-Biz_20190513_212845.jpeg?auto=format"
+    },
+    {
+      "id": 9,
+      "categoryId": 2,
+      "name": "Coffee Tiramisu",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/61220de5-5827-45a3-b31e-cefd02d2ec57_d6a0f18f-1c15-4ff7-9ccc-01c4b6a84e75_Go-Biz_20190513_212845.jpeg?auto=format"
+    },
+    {
+      "id": 10,
+      "categoryId": 2,
+      "name": "Coffee Vanilla",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/61220de5-5827-45a3-b31e-cefd02d2ec57_d6a0f18f-1c15-4ff7-9ccc-01c4b6a84e75_Go-Biz_20190513_212845.jpeg?auto=format"
+    },
+    {
+      "id": 11,
+      "categoryId": 2,
+      "name": "Coffee Strawberry",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/61220de5-5827-45a3-b31e-cefd02d2ec57_d6a0f18f-1c15-4ff7-9ccc-01c4b6a84e75_Go-Biz_20190513_212845.jpeg?auto=format"
+    },
+    {
+      "id": 12,
+      "categoryId": 3,
+      "name": "Choco Original Creamy",
+      "price": 15000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/09c93415-10b7-4cb9-b52f-adb2b11c0c45_b2a1c9a9-5a8e-4466-a655-be83f6a1549f_Go-Biz_20190513_210026.jpeg?auto=format"
+    },
+    {
+      "id": 13,
+      "categoryId": 3,
+      "name": "Choco Berry Creamy",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/9f08f811-c2cd-413b-8723-5e21e7fe65b6_51f4e20f-49fd-4e36-91fd-828053b3749b_Go-Biz_20190513_210405.jpeg?auto=format"
+    },
+    {
+      "id": 14,
+      "categoryId": 3,
+      "name": "Choco Vanilla Creamy",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/fc65a2c0-acfc-4d7e-bdc7-fc484a47828c_fc66a6b5-71b8-4a1e-adc7-793bedae226f_Go-Biz_20190513_210558.jpeg?auto=format"
+    },
+    {
+      "id": 15,
+      "categoryId": 3,
+      "name": "Choco Caramel Creamy",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/fc65a2c0-acfc-4d7e-bdc7-fc484a47828c_fc66a6b5-71b8-4a1e-adc7-793bedae226f_Go-Biz_20190513_210558.jpeg?auto=format"
+    },
+    {
+      "id": 16,
+      "categoryId": 3,
+      "name": "Choco Hazelnut Creamy",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/11d31a03-940b-4922-b93c-4f1034c8dabe_0546e059-f650-4dd1-a04c-caceddebabdc_Go-Biz_20190513_211402.jpeg?auto=format"
+    },
+    {
+      "id": 17,
+      "categoryId": 3,
+      "name": "Choco Blueberry Creamy",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/11d31a03-940b-4922-b93c-4f1034c8dabe_0546e059-f650-4dd1-a04c-caceddebabdc_Go-Biz_20190513_211402.jpeg?auto=format"
+    },
+    {
+      "id": 18,
+      "categoryId": 3,
+      "name": "Choco Tiramusu Creamy",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/11d31a03-940b-4922-b93c-4f1034c8dabe_0546e059-f650-4dd1-a04c-caceddebabdc_Go-Biz_20190513_211402.jpeg?auto=format"
+    },
+    {
+      "id": 19,
+      "categoryId": 3,
+      "name": "Choco Manggo Creamy",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/11d31a03-940b-4922-b93c-4f1034c8dabe_0546e059-f650-4dd1-a04c-caceddebabdc_Go-Biz_20190513_211402.jpeg?auto=format"
+    },
+    {
+      "id": 20,
+      "categoryId": 4,
+      "name": "Berry Creamy",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/4247e06f-c036-44ed-8e25-0dafbab2d2bb_25bce874-c323-467a-a755-a3c974795d01_Go-Biz_20190513_211903.jpeg?auto=format"
+    },
+    {
+      "id": 21,
+      "categoryId": 4,
+      "name": "Vanilla Creamy",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/3fd81617-4b12-44fd-9335-a995757548c0_71442305-620b-4296-8d20-af6d6c2db51f_Go-Biz_20190513_212045.jpeg?auto=format"
+    },
+    {
+      "id": 22,
+      "categoryId": 4,
+      "name": "Caramel Creamy",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/3fd81617-4b12-44fd-9335-a995757548c0_71442305-620b-4296-8d20-af6d6c2db51f_Go-Biz_20190513_212045.jpeg?auto=format"
+    },
+    {
+      "id": 23,
+      "categoryId": 4,
+      "name": "Hazelnut Creamy",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/3fd81617-4b12-44fd-9335-a995757548c0_71442305-620b-4296-8d20-af6d6c2db51f_Go-Biz_20190513_212045.jpeg?auto=format"
+    },
+    {
+      "id": 24,
+      "categoryId": 4,
+      "name": "Blueberry Creamy",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/4247e06f-c036-44ed-8e25-0dafbab2d2bb_25bce874-c323-467a-a755-a3c974795d01_Go-Biz_20190513_211903.jpeg?auto=format"
+    },
+    {
+      "id": 25,
+      "categoryId": 4,
+      "name": "Tiramisu Creamy",
+      "price": 19000,
+      "stock": 5,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/3fd81617-4b12-44fd-9335-a995757548c0_71442305-620b-4296-8d20-af6d6c2db51f_Go-Biz_20190513_212045.jpeg?auto=format"
+    },
+    {
+      "id": 26,
+      "categoryId": 5,
+      "name": "Bombo Bimbim Original",
+      "price": 2000,
+      "stock": 20,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/3c7af6eb-bee1-45d4-bbeb-1f720c67558c_Go-Biz_20210321_164956.jpeg?auto=format"
+    },
+    {
+      "id": 27,
+      "categoryId": 5,
+      "name": "Bombo Bimbim Chocolate",
+      "price": 2500,
+      "stock": 20,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a0ddd102-173f-4c7a-9120-1efc097c4da5_Go-Biz_20210118_111013.jpeg?auto=format"
+    },
+    {
+      "id": 28,
+      "categoryId": 5,
+      "name": "Bombo Bimbim Cheese",
+      "price": 2500,
+      "stock": 20,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a0ddd102-173f-4c7a-9120-1efc097c4da5_Go-Biz_20210118_111013.jpeg?auto=format"
+    },
+    {
+      "id": 29,
+      "categoryId": 5,
+      "name": "Bombo Bimbim Tiramisu",
+      "price": 2500,
+      "stock": 20,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a0ddd102-173f-4c7a-9120-1efc097c4da5_Go-Biz_20210118_111013.jpeg?auto=format"
+    },
+    {
+      "id": 30,
+      "categoryId": 5,
+      "name": "Bombo Bimbim Mochaccino",
+      "price": 2500,
+      "stock": 20,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a0ddd102-173f-4c7a-9120-1efc097c4da5_Go-Biz_20210118_111013.jpeg?auto=format"
+    },
+    {
+      "id": 31,
+      "categoryId": 5,
+      "name": "Bombo Bimbim Green Tea",
+      "price": 2500,
+      "stock": 20,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a0ddd102-173f-4c7a-9120-1efc097c4da5_Go-Biz_20210118_111013.jpeg?auto=format"
+    },
+    {
+      "id": 32,
+      "categoryId": 5,
+      "name": "Bombo Bimbim Taro",
+      "price": 2500,
+      "stock": 20,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a0ddd102-173f-4c7a-9120-1efc097c4da5_Go-Biz_20210118_111013.jpeg?auto=format"
+    },
+    {
+      "id": 33,
+      "categoryId": 5,
+      "name": "Bombo Bimbim Strawberry",
+      "price": 2500,
+      "stock": 20,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a0ddd102-173f-4c7a-9120-1efc097c4da5_Go-Biz_20210118_111013.jpeg?auto=format"
+    },
+    {
+      "id": 34,
+      "categoryId": 5,
+      "name": "Bombo Bimbim Blueberry",
+      "price": 2500,
+      "stock": 20,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a0ddd102-173f-4c7a-9120-1efc097c4da5_Go-Biz_20210118_111013.jpeg?auto=format"
+    },
+    {
+      "id": 35,
+      "categoryId": 5,
+      "name": "Bombo Bimbim Vanilla",
+      "price": 2500,
+      "stock": 20,
+      "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a0ddd102-173f-4c7a-9120-1efc097c4da5_Go-Biz_20210118_111013.jpeg?auto=format"
+    }
+  ],
+  "transactions": [],
+  "transaction_details": []
+}

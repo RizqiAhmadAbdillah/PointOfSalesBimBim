@@ -11,22 +11,38 @@ function Main() {
 
   const [products, setProducts] = useState([]);
 
-  const evaluateLink = () => {
-    switch (sortBy) {
-      case 'Product Name':
-        return `http://localhost:3000/products/?q=${keyword}&_sort=name`
-      case 'Product Price':
-        return `http://localhost:3000/products/?q=${keyword}&_sort=price`
-      default:
-        return `http://localhost:3000/products/?q=${keyword}`
+  const evaluateParams = () => {
+    const baseParams = {}
+
+    if (keyword) {
+      baseParams.q = keyword
     }
+
+    if (sortBy) {
+      switch (sortBy) {
+        case 'Product Name':
+           baseParams._sort = 'name'
+           break
+        case 'Product Price':
+          baseParams._sort = 'price'
+          break
+        default: break
+      }
+    }
+
+    const category = null
+    if (category) {
+      baseParams.categoryId = category
+    }
+
+    return baseParams
   }
 
   const getProducts = async () => {
-    const link = evaluateLink()
+    const params = evaluateParams()
 
     await axios
-      .get(link)
+      .get('http://localhost:3000/products', { params })
       .then((response) => setProducts(response.data))
       .catch((error) => console.log(error.message));
   };

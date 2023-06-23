@@ -4,15 +4,29 @@ import axios from "axios";
 import BotNav from "../components/BotNav";
 
 function Main() {
-  const options = ["Best Selling", "name", "Newest", "price"];
+  const options = ["Best Selling", "Product Name", "Newest", "Product Price"];
   const [sortBy, setSortBy] = useState(options[0]);
 
   const [keyword, setKeyword] = useState("");
 
   const [products, setProducts] = useState([]);
+
+  const evaluateLink = () => {
+    switch (sortBy) {
+      case 'Product Name':
+        return `http://localhost:3000/products/?q=${keyword}&_sort=name`
+      case 'Product Price':
+        return `http://localhost:3000/products/?q=${keyword}&_sort=price`
+      default:
+        return `http://localhost:3000/products/?q=${keyword}`
+    }
+  }
+
   const getProducts = async () => {
+    const link = evaluateLink()
+
     await axios
-      .get(`http://localhost:3000/products/?q=${keyword}&_sort=${sortBy}`)
+      .get(link)
       .then((response) => setProducts(response.data))
       .catch((error) => console.log(error.message));
   };

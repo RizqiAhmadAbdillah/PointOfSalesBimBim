@@ -4,7 +4,10 @@ import axios from "axios";
 import BotNav from "../components/BotNav";
 
 function Main() {
-  const options = ["Best Selling", "name", "Newest", "price"];
+  const options = [
+    { label: 'Nama Produk', value: 'name' },
+    { label: 'Harga Produk', value: 'price' },
+  ];
   const [sortBy, setSortBy] = useState(options[0]);
 
   const [keyword, setKeyword] = useState("");
@@ -12,10 +15,11 @@ function Main() {
   const [products, setProducts] = useState([]);
   const getProducts = async () => {
     await axios
-      .get(`http://localhost:3000/products/?q=${keyword}&_sort=${sortBy}`)
+      .get(`http://localhost:3000/products/?q=${keyword}&_sort=${sortBy.value}`)
       .then((response) => setProducts(response.data))
       .catch((error) => console.log(error.message));
   };
+
   useEffect(() => {
     getProducts();
   }, [sortBy, keyword]);
@@ -31,17 +35,20 @@ function Main() {
               <select
                 name=""
                 id="sort"
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
+                value={sortBy.value}
+                onChange={(e) => {
+                  const selectedOption = options.find(opt => opt.value === e.target.value)
+                  setSortBy(selectedOption)
+                }}
                 className="px-4 py-2 w-48 bg-[#0079FF] rounded text-white font-semibold"
               >
-                {options.map((value) => (
+                {options.map((option) => (
                   <option
-                    key={value}
-                    value={value}
+                    key={option.value}
+                    value={option.value}
                     className="bg-white text-gray-950"
                   >
-                    {value}
+                    {option.label}
                   </option>
                 ))}
               </select>

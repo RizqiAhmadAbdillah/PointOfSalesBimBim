@@ -3,6 +3,7 @@ import ProductCard from "../components/ProductCard";
 import axios from "axios";
 import BotNav from "../components/BotNav";
 import { useSelector } from "react-redux";
+import { ALL_CATEGORY } from '../enums.js'
 
 function Main() {
   const category = useSelector((state) => state.cart.category);
@@ -39,7 +40,7 @@ function Main() {
           break;
       }
     }
-    if (category >= 0) {
+    if (category !== ALL_CATEGORY) {
       baseParams.categoryId = category;
     }
     return baseParams;

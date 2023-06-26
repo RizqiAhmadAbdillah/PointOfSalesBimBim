@@ -2,23 +2,60 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import axios from "axios";
 import BotNav from "../components/BotNav";
+import { useSelector } from "react-redux";
 
 function Main() {
-  const options = ["Best Selling", "name", "Newest", "price"];
+  const category = useSelector((state) => state.cart.category);
+  const options = ["Best Selling", "Name", "Newest", "Price"];
   const [sortBy, setSortBy] = useState(options[0]);
 
   const [keyword, setKeyword] = useState("");
 
   const [products, setProducts] = useState([]);
+
+  const evaluateParams = () => {
+    const baseParams = {};
+    if (keyword) {
+      baseParams.q = keyword;
+    }
+    if (sortBy) {
+      switch (sortBy) {
+        case "Best Selling": {
+          baseParams._sort = "id";
+          break;
+        }
+        case "Name": {
+          baseParams._sort = "name";
+          break;
+        }
+        case "Newest": {
+          baseParams._sort = "id";
+          break;
+        }
+        case "Price": {
+          baseParams._sort = "price";
+        }
+        default:
+          break;
+      }
+    }
+    if (category >= 0) {
+      baseParams.categoryId = category;
+    }
+    return baseParams;
+  };
   const getProducts = async () => {
+    const params = evaluateParams();
+    // await axios
+    //   .get(`http://localhost:3000/products/?q=${keyword}&_sort=${sortBy}`)
     await axios
-      .get(`http://localhost:3000/products/?q=${keyword}&_sort=${sortBy}`)
+      .get("http://localhost:3000/products", { params })
       .then((response) => setProducts(response.data))
       .catch((error) => console.log(error.message));
   };
   useEffect(() => {
     getProducts();
-  }, [sortBy, keyword]);
+  }, [sortBy, keyword, category]);
   return (
     <>
       <div className="ms-32 py-4 flex flex-col gap-4 mr-64 h-screen relative">

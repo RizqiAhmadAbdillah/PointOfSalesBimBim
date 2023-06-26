@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { setCategory, resetCategory } from "../features/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { ALL_CATEGORY } from "../enums";
 
 function BotNav() {
   const dispatch = useDispatch();
+  const categoryState = useSelector((state) => state.cart.category);
   const [products, setProducts] = useState([]);
   const getProducts = async () => {
     await axios
@@ -35,9 +37,12 @@ function BotNav() {
       >
         <div className="flex justify-between px-24 py-8">
           <button
-            autoFocus
-            onFocus={() => dispatch(resetCategory())}
-            className="font-bold text-lg outline-none border-b-2 border-b-white focus:border-b-gray-950"
+            onClick={() => dispatch(resetCategory())}
+            className={`font-bold text-lg outline-none border-b-2 ${
+              categoryState === ALL_CATEGORY
+                ? "border-b-gray-950"
+                : "border-b-white"
+            }`}
           >
             All ({products.length})
           </button>
@@ -45,7 +50,11 @@ function BotNav() {
             <button
               key={category.id}
               onClick={() => dispatch(setCategory(category.id))}
-              className="font-bold text-lg border-b-2 border-b-white focus:border-b-gray-950"
+              className={`font-bold text-lg outline-none border-b-2 ${
+                categoryState === category.id
+                  ? "border-b-gray-950"
+                  : "border-b-white"
+              }`}
             >
               {category.name} ({category.products.length})
             </button>

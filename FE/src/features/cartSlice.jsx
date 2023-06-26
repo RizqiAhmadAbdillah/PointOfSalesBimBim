@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { ALL_CATEGORY } from "../enums";
 
 const initialState = {
   isCartOpen: false,
   totalProducts: 0,
   totalPrice: 0,
-  category: 0,
+  category: ALL_CATEGORY,
   items: [],
 };
 export const cartSlice = createSlice({
@@ -24,7 +25,7 @@ export const cartSlice = createSlice({
       state.category = action.payload;
     },
     resetCategory: (state) => {
-      state.category = -1;
+      state.category = ALL_CATEGORY;
     },
     addToCart: (state, action) => {
       const newItem = action.payload;

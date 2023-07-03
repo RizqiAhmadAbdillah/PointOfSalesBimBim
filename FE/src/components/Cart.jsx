@@ -24,7 +24,7 @@ function Cart() {
   const clickHandler = async () => {
     const transactions = {
       charged_amount: totalPrice,
-      paid_amount: paid,
+      paid_amount: Number(paid),
       change_amount: change,
     };
     try {

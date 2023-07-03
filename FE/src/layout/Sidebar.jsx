@@ -5,6 +5,7 @@ import SettingsSvg from "../assets/SettingsSvg";
 import DashboardSvg from "../assets/DashboardSvg";
 import { useDispatch } from "react-redux";
 import {
+  NAVS,
   setToDashboard,
   setToSettings,
   setToTransaction,
@@ -22,17 +23,19 @@ function Sidebar() {
           <Nav
             icon={<DashboardSvg />}
             text="Dashboard"
+            value={NAVS.DASHBOARD}
             onClick={() => dispatch(setToDashboard())}
-            className="bg-gray-200"
           />
           <Nav
             icon={<CartSvg />}
             text="Transactions"
+            value={NAVS.TRANSACTION}
             onClick={() => dispatch(setToTransaction())}
           />
           <Nav
             icon={<SettingsSvg />}
             text="Settings"
+            value={NAVS.SETTINGS}
             onClick={() => dispatch(setToSettings())}
           />
         </ul>

@@ -1,27 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export const NAVS = {
+  DASHBOARD: 1,
+  TRANSACTION: 2,
+  SETTINGS: 3
+}
+
 const initialState = {
-  dashboardNav: true,
-  transactionNav: false,
-  settingsNav: false,
+  currentNav: NAVS.DASHBOARD
 };
 
 export const navSlice = createSlice({
   name: "nav",
   initialState: { ...initialState },
   reducers: {
-    setToDashboard: () => {
-      return { ...initialState };
+    setToDashboard: (state) => {
+      state.currentNav = NAVS.DASHBOARD;
     },
     setToTransaction: (state) => {
-      state.dashboardNav = false;
-      state.transactionNav = true;
-      state.settingsNav = false;
+      state.currentNav = NAVS.TRANSACTION
     },
     setToSettings: (state) => {
-      state.dashboardNav = false;
-      state.transactionNav = false;
-      state.settingsNav = true;
+      state.currentNav = NAVS.SETTINGS
     },
   },
 });

@@ -6,10 +6,12 @@ import { BrowserRouter } from "react-router-dom";
 import { configureStore } from "@reduxjs/toolkit";
 import cartSlice from "./features/cartSlice.jsx";
 import { Provider } from "react-redux";
+import navSlice from "./features/navSlice.jsx";
 
 const store = configureStore({
   reducer: {
     cart: cartSlice,
+    nav: navSlice,
   },
 });
 

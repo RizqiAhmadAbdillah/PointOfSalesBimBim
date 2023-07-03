@@ -33,7 +33,7 @@ function BotNav() {
     <>
       <div
         id="sort__categories"
-        className="absolute left-0 bottom-0 w-full h-24 bg-white rounded-t-3xl drop-shadow-[0_-2px_2px_rgba(0,0,0,0.1)]"
+        className="absolute bottom-0 w-full h-24 bg-white rounded-t-3xl drop-shadow-[0_-2px_2px_rgba(0,0,0,0.1)]"
       >
         <div className="flex justify-between px-24 py-8">
           <button

@@ -15,7 +15,7 @@ function Button(props) {
     <button
       {...otherProps}
       className={
-        "px-4 py-2 flex justify-between items-center gap-2 " + primary + className
+        "px-4 py-2 flex justify-center items-center gap-2 " + primary + className
       }
     >
       {iconLeft}

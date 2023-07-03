@@ -3,9 +3,15 @@ import Nav from "../components/Nav";
 import CartSvg from "../assets/CartSvg";
 import SettingsSvg from "../assets/SettingsSvg";
 import DashboardSvg from "../assets/DashboardSvg";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {
+  setToDashboard,
+  setToSettings,
+  setToTransaction,
+} from "../features/navSlice";
 
 function Sidebar() {
+  const dispatch = useDispatch();
   return (
     <>
       <div className="fixed top-0 left-0 z-10 w-24 h-screen rounded-r-3xl bg-white">
@@ -13,15 +19,22 @@ function Sidebar() {
           <h1 className="font-bold text-xl">BimBim</h1>
         </div>
         <ul className="flex flex-col justify-start items-center">
-          <Link to={"/"}>
-            <Nav icon={<DashboardSvg />} text="Dashboard" className="bg-gray-200"/>
-          </Link>
-          <Link to={"/transactions"}>
-            <Nav icon={<CartSvg />} text="Transactions" />
-          </Link>
-          <Link to={"/settings"}>
-            <Nav icon={<SettingsSvg />} text="Settings" />
-          </Link>
+          <Nav
+            icon={<DashboardSvg />}
+            text="Dashboard"
+            onClick={() => dispatch(setToDashboard())}
+            className="bg-gray-200"
+          />
+          <Nav
+            icon={<CartSvg />}
+            text="Transactions"
+            onClick={() => dispatch(setToTransaction())}
+          />
+          <Nav
+            icon={<SettingsSvg />}
+            text="Settings"
+            onClick={() => dispatch(setToSettings())}
+          />
         </ul>
       </div>
     </>

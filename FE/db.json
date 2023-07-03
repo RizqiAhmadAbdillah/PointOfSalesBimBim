@@ -303,6 +303,62 @@
       "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a0ddd102-173f-4c7a-9120-1efc097c4da5_Go-Biz_20210118_111013.jpeg?auto=format"
     }
   ],
-  "transactions": [],
-  "transaction_details": []
+  "transactions": [
+    {
+      "charged_amount": 29000,
+      "paid_amount": "50000",
+      "change_amount": 21000,
+      "id": 1
+    },
+    {
+      "charged_amount": 68000,
+      "paid_amount": "100000",
+      "change_amount": 32000,
+      "id": 2
+    }
+  ],
+  "transaction_details": [
+    {
+      "productId": 1,
+      "transactionId": 1,
+      "quantity": 1,
+      "subtotal": 14000,
+      "id": 1
+    },
+    {
+      "productId": 2,
+      "transactionId": 1,
+      "quantity": 1,
+      "subtotal": 15000,
+      "id": 2
+    },
+    {
+      "productId": 1,
+      "transactionId": 2,
+      "quantity": 2,
+      "subtotal": 28000,
+      "id": 3
+    },
+    {
+      "productId": 2,
+      "transactionId": 2,
+      "quantity": 1,
+      "subtotal": 15000,
+      "id": 4
+    },
+    {
+      "productId": 26,
+      "transactionId": 2,
+      "quantity": 3,
+      "subtotal": 6000,
+      "id": 5
+    },
+    {
+      "productId": 15,
+      "transactionId": 2,
+      "quantity": 1,
+      "subtotal": 19000,
+      "id": 6
+    }
+  ]
 }

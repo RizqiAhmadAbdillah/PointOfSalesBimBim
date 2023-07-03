@@ -28,12 +28,12 @@ export const cartSlice = createSlice({
       state.category = ALL_CATEGORY;
     },
     addToCart: (state, action) => {
-      const newItem = action.payload;
+      const newItem = action.payload; 
       const existingItem = state.items.find((item) => item.id === newItem.id);
-      state.totalProducts += newItem.qty;
-      state.totalPrice += newItem.price * newItem.qty;
+      state.totalProducts += newItem.quantity;
+      state.totalPrice += newItem.price * newItem.quantity;
       if (existingItem) {
-        existingItem.qty += newItem.qty;
+        existingItem.quantity += newItem.quantity;
       } else {
         state.items.push(newItem);
       }
@@ -48,8 +48,8 @@ export const cartSlice = createSlice({
           (item) => item.id !== selectedItem.id
         );
         state.items = newItem;
-        state.totalProducts -= selectedItem.qty;
-        state.totalPrice -= selectedItem.price * selectedItem.qty;
+        state.totalProducts -= selectedItem.quantity;
+        state.totalPrice -= selectedItem.price * selectedItem.quantity;
       }
     },
     lowerItemQuantity: (state, action) => {
@@ -58,10 +58,10 @@ export const cartSlice = createSlice({
         (item) => item.id === selectedItem.id
       );
       if (existingItem) {
-        if (existingItem.qty === 1) {
-          existingItem.qty = 1;
+        if (existingItem.quantity === 1) {
+          existingItem.quantity = 1;
         } else {
-          existingItem.qty--;
+          existingItem.quantity--;
         }
         state.totalProducts--;
         state.totalPrice -= selectedItem.price;
@@ -73,7 +73,7 @@ export const cartSlice = createSlice({
         (item) => item.id === selectedItem.id
       );
       if (existingItem) {
-        existingItem.qty++;
+        existingItem.quantity++;
         state.totalProducts++;
         state.totalPrice += selectedItem.price;
       }

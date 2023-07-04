@@ -6,19 +6,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { ALL_CATEGORY } from "../enums";
 import { addToCart } from "../features/cartSlice";
 import Cart from "../components/Cart";
+import Button from "../components/Button";
+import SortDescSvg from "../assets/SortDescSvg";
+import SortAscSvg from "../assets/SortAscSvg";
 
 function Dashboard() {
   const dispatch = useDispatch();
   const category = useSelector((state) => state.cart.category);
   const options = ["Best Selling", "Name", "Newest", "Price"];
   const [sortBy, setSortBy] = useState(options[0]);
-
   const [keyword, setKeyword] = useState("");
+  const [isDescending, setIsDescending] = useState(true);
 
   const [products, setProducts] = useState([]);
 
   const evaluateParams = () => {
     const baseParams = {};
+    if (isDescending) {
+      baseParams._order = "desc";
+    }
     if (keyword) {
       baseParams.q = keyword;
     }
@@ -50,8 +56,6 @@ function Dashboard() {
   };
   const getProducts = async () => {
     const params = evaluateParams();
-    // await axios
-    //   .get(`http://localhost:3000/products/?q=${keyword}&_sort=${sortBy}`)
     await axios
       .get("http://localhost:3000/products", { params })
       .then((response) => setProducts(response.data))
@@ -59,7 +63,7 @@ function Dashboard() {
   };
   useEffect(() => {
     getProducts();
-  }, [sortBy, keyword, category]);
+  }, [sortBy, keyword, category, isDescending]);
   return (
     <>
       <div className="w-2/3 ms-32 flex flex-col gap-4 relative">
@@ -86,6 +90,13 @@ function Dashboard() {
                   </option>
                 ))}
               </select>
+            </li>
+            <li>
+              <Button
+                variant="secondary"
+                iconLeft={isDescending ? <SortDescSvg /> : <SortAscSvg />}
+                onClick={() => setIsDescending(!isDescending)}
+              />
             </li>
             <li>
               <input

@@ -25,22 +25,18 @@ function Transactions() {
       switch (sortBy) {
         case "Newest": {
           baseParams._sort = "id";
-          // baseParams._order = "desc";
           break;
         }
         case "Charged Amount": {
           baseParams._sort = "charged_amount";
-          // baseParams._order = "desc";
           break;
         }
         case "Paid Amount": {
           baseParams._sort = "paid_amount";
-          // baseParams._order = "desc";
           break;
         }
         case "Change Amount": {
           baseParams._sort = "change_amount";
-          // baseParams._order = "desc";
           break;
         }
         default:

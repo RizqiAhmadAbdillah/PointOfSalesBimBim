@@ -2,15 +2,22 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Button from "../components/Button";
 import CloseSvg from "../assets/CloseSvg";
+import SortDescSvg from "../assets/SortDescSvg";
+import SortAscSvg from "../assets/SortAscSvg";
 
 function Transactions() {
   const [isDetailOpen, setIsDetailOpen] = useState(false);
   const options = ["Newest", "Charged Amount", "Paid Amount", "Change Amount"];
   const [sortBy, setSortBy] = useState(options[0]);
   const [keyword, setKeyword] = useState("");
+  const [isDescending, setIsDescending] = useState(true);
 
   const evaluateParams = () => {
     const baseParams = {};
+    if (isDescending) {
+      baseParams._order = "desc";
+    }
+
     if (keyword) {
       baseParams.q = keyword;
     }
@@ -18,19 +25,22 @@ function Transactions() {
       switch (sortBy) {
         case "Newest": {
           baseParams._sort = "id";
-          baseParams._order = "desc";
+          // baseParams._order = "desc";
           break;
         }
         case "Charged Amount": {
           baseParams._sort = "charged_amount";
+          // baseParams._order = "desc";
           break;
         }
         case "Paid Amount": {
           baseParams._sort = "paid_amount";
+          // baseParams._order = "desc";
           break;
         }
         case "Change Amount": {
           baseParams._sort = "change_amount";
+          // baseParams._order = "desc";
           break;
         }
         default:
@@ -62,7 +72,7 @@ function Transactions() {
   useEffect(() => {
     getTransactions();
     getTransactionDetail();
-  }, [sortBy, keyword, isDetailOpen, transaction]);
+  }, [sortBy, keyword, isDescending, isDetailOpen, transaction]);
   return (
     <>
       <div
@@ -93,6 +103,13 @@ function Transactions() {
                   </option>
                 ))}
               </select>
+            </li>
+            <li>
+              <Button
+                variant="secondary"
+                iconLeft={isDescending ? <SortDescSvg /> : <SortAscSvg />}
+                onClick={() => setIsDescending(!isDescending)}
+              />
             </li>
             <li>
               <input
@@ -184,7 +201,7 @@ function Transactions() {
                       <div id="tr__name" className="font-semibold">
                         {td.product.name}
                       </div>
-                      <div id="tr__price" className="flex">
+                      <div id="tr__price">
                         <p>
                           {`Rp.${td.product.price} x ${td.quantity} = `}
                           <span className="font-semibold">{`Rp.${

@@ -48,12 +48,12 @@ function Transactions() {
       .catch((error) => console.log(error.message));
   };
 
-  const [transactionId, setTransactionId] = useState(0);
+  const [transaction, setTransaction] = useState({});
   const [transaction_detail, setTransaction_detail] = useState([]);
   const getTransactionDetail = async () => {
     await axios
       .get(
-        `http://localhost:3000/transaction_details?transactionId=${transactionId}`
+        `http://localhost:3000/transaction_details?transactionId=${transaction.id}&_expand=product`
       )
       .then((response) => setTransaction_detail(response.data))
       .catch((error) => console.log(error.message));
@@ -62,7 +62,7 @@ function Transactions() {
   useEffect(() => {
     getTransactions();
     getTransactionDetail();
-  }, [sortBy, keyword, isDetailOpen, transactionId, transaction_detail]);
+  }, [sortBy, keyword, isDetailOpen, transaction]);
   return (
     <>
       <div
@@ -130,10 +130,10 @@ function Transactions() {
                       text="Detail"
                       variant="info"
                       onClick={() => {
-                        setTransactionId(transaction.id);
+                        setTransaction(transaction);
                         setIsDetailOpen(true);
                       }}
-                      className="px-2 py-1"
+                      className="px-2 py-1 text-sm font-semibold"
                     />
                   </td>
                 </tr>
@@ -155,24 +155,51 @@ function Transactions() {
               <CloseSvg />
             </div>
           </div>
-          <aside className="flex flex-col gap-4">
-            {/* <h2>{transactions.charged_amount}</h2>
-            <h2>{transactions.paid_amount}</h2>
-            <h2>{transactions.change_amount}</h2> */}
-            <ul>Products</ul>
+          <aside className="flex flex-col gap-2 mt-4 p-2">
+            <h2 className="font-semibold">{`Charged Amount: Rp.${transaction.charged_amount}`}</h2>
+            <h2 className="font-semibold">{`Paid Amount: Rp.${transaction.paid_amount}`}</h2>
+            <h2 className="font-semibold">{`Change Amount: Rp.${transaction.change_amount}`}</h2>
+            <ul>Products:</ul>
             {transaction_detail.map((td) => (
-              <li key={td.id} className="list-none">
-                <div className="flex">
-                  <h3>product id</h3>
-                  <div>{td.productId}</div>
-                </div>
-                <div className="flex">
-                  <h3>product quantity</h3>
-                  <div>{td.quantity}</div>
-                </div>
-                <div className="flex">
-                  <h3>product subtotal</h3>
-                  <div>{td.subTotal}</div>
+              <li
+                key={td.id}
+                className="list-none flex justify-between py-2 gap-4 border-b border-b-gray-200"
+              >
+                <div
+                  id="tr__wrapper"
+                  className="flex justify-between items-center gap-4 w-full"
+                >
+                  <div className="flex flex-grow justify-between gap-4">
+                    <div id="tr__image" className="w-1/6">
+                      <img
+                        src={td.product.image}
+                        alt={td.product.name}
+                        className="h-full object-cover rounded-lg"
+                      />
+                    </div>
+                    <div
+                      id="tr_details"
+                      className="flex flex-col justify-center flex-grow"
+                    >
+                      <div id="tr__name" className="font-semibold">
+                        {td.product.name}
+                      </div>
+                      <div id="tr__price" className="flex">
+                        <p>
+                          {`Rp.${td.product.price} x ${td.quantity} = `}
+                          <span className="font-semibold">{`Rp.${
+                            td.product.price * td.quantity
+                          }`}</span>
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      id="tr__quantity"
+                      className="flex justify-between items-center"
+                    >
+                      {td.product.quantity}
+                    </div>
+                  </div>
                 </div>
               </li>
             ))}

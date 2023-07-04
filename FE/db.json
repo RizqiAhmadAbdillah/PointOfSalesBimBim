@@ -306,15 +306,21 @@
   "transactions": [
     {
       "charged_amount": 29000,
-      "paid_amount": "50000",
-      "change_amount": 21000,
+      "paid_amount": 100000,
+      "change_amount": 71000,
       "id": 1
     },
     {
-      "charged_amount": 68000,
-      "paid_amount": "100000",
-      "change_amount": 32000,
+      "charged_amount": 50000,
+      "paid_amount": 50000,
+      "change_amount": 0,
       "id": 2
+    },
+    {
+      "charged_amount": 51500,
+      "paid_amount": 70000,
+      "change_amount": 18500,
+      "id": 3
     }
   ],
   "transaction_details": [
@@ -333,17 +339,17 @@
       "id": 2
     },
     {
-      "productId": 1,
+      "productId": 6,
       "transactionId": 2,
       "quantity": 2,
-      "subtotal": 28000,
+      "subtotal": 30000,
       "id": 3
     },
     {
-      "productId": 2,
+      "productId": 1,
       "transactionId": 2,
       "quantity": 1,
-      "subtotal": 15000,
+      "subtotal": 14000,
       "id": 4
     },
     {
@@ -354,11 +360,32 @@
       "id": 5
     },
     {
-      "productId": 15,
-      "transactionId": 2,
+      "productId": 6,
+      "transactionId": 3,
+      "quantity": 1,
+      "subtotal": 15000,
+      "id": 6
+    },
+    {
+      "productId": 21,
+      "transactionId": 3,
       "quantity": 1,
       "subtotal": 19000,
-      "id": 6
+      "id": 7
+    },
+    {
+      "productId": 29,
+      "transactionId": 3,
+      "quantity": 1,
+      "subtotal": 2500,
+      "id": 8
+    },
+    {
+      "productId": 2,
+      "transactionId": 3,
+      "quantity": 1,
+      "subtotal": 15000,
+      "id": 9
     }
   ]
 }

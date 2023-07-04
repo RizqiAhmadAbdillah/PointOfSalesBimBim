@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Dashboard from "./Dashboard";
-import Transaction from "./Transaction";
+import Transactions from "./Transactions";
 import Settings from "./Settings";
 import { NAVS } from "../features/navSlice";
 
@@ -20,7 +20,7 @@ function CurrentPage() {
     case NAVS.DASHBOARD:
       return <Dashboard />;
     case NAVS.TRANSACTION:
-      return <Transaction />;
+      return <Transactions />;
     case NAVS.SETTINGS:
       return <Settings />;
     default:

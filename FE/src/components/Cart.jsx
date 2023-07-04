@@ -138,6 +138,10 @@ function Cart() {
         )}
         <div className="absolute bottom-0 left-0 w-full p-4 flex flex-col gap-4 justify-between bg-white border-t border-t-gray-400 border-spacing-48 border-dashed rounded-b-3xl">
           <div className="flex flex-col gap-4">
+            <div className="flex justify-between">
+              <h1 className="text-xl font-bold">Total:</h1>
+              <p className="text-xl font-bold">{"Rp." + totalPrice}</p>
+            </div>
             <div className="flex flex-col gap-1">
               <label htmlFor="paid_amount" className="text-xl font-bold">
                 Paid Amount
@@ -160,11 +164,6 @@ function Cart() {
             ) : (
               ""
             )}
-
-            <div className="flex justify-between">
-              <h1 className="text-xl font-bold">Total:</h1>
-              <p className="text-xl font-bold">{"Rp." + totalPrice}</p>
-            </div>
           </div>
           <Button
             text="Checkout"

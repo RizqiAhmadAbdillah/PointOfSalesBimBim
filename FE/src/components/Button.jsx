@@ -7,7 +7,7 @@ function Button(props) {
     primary: "bg-[#0079FF] rounded text-white font-semibold",
     secondary: "bg-gray-400 rounded text-white font-semibold",
     success: "bg-[#00DFA2] rounded text-white font-semibold",
-    info: "bg-[#F6FA70] rounded text-white font-semibold",
+    info: "bg-[#45CFDD] rounded text-white font-semibold",
     danger: "bg-[#FF0060] rounded text-white font-semibold",
   };
   let primary = variants[variant];

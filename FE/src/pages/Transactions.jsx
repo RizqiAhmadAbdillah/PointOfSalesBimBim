@@ -74,7 +74,7 @@ function Transactions() {
       <div
         className={`${
           isDetailOpen ? "w-2/3" : "w-full"
-        } ms-32 flex flex-col gap-4 relative`}
+        } max-h-[calc(100vh-32px)] ms-32 flex flex-col gap-4 relative`}
       >
         <div id="main__header" className="flex justify-between">
           <h1 id="header__title" className="font-bold text-2xl">
@@ -117,15 +117,15 @@ function Transactions() {
             </li>
           </ul>
         </div>
-        <main className="bg-white rounded-xl p-4">
+        <main className="bg-white rounded-xl p-4 h-full overflow-x-hidden">
           <table className="table-auto capitalize w-full">
-            <thead>
+            <thead className="sticky top-0 bg-white">
               <tr>
-                <th>#</th>
-                <th>charged amount</th>
-                <th>paid amount</th>
-                <th>change amount</th>
-                <th>detail</th>
+                <th className="p-2">#</th>
+                <th className="p-2">charged amount</th>
+                <th className="p-2">paid amount</th>
+                <th className="p-2">change amount</th>
+                <th className="p-2">detail</th>
               </tr>
             </thead>
             <tbody>

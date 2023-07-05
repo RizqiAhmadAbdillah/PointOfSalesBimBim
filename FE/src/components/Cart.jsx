@@ -150,7 +150,10 @@ function Cart() {
                 id="paid_amount"
                 type="number"
                 placeholder="100000"
-                onChange={(e) => setPaid(e.target.value)}
+                min="0"
+                onChange={(e) => {
+                  setPaid(e.target.value);
+                }}
                 className="px-4 py-2 w-full rounded placeholder:italic border border-gray-400"
               />
             </div>

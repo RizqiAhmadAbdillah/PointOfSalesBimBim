@@ -327,6 +327,60 @@
       "paid_amount": 50000,
       "change_amount": 4500,
       "id": 4
+    },
+    {
+      "charged_amount": 2500,
+      "paid_amount": 5000,
+      "change_amount": 2500,
+      "id": 5
+    },
+    {
+      "charged_amount": 38000,
+      "paid_amount": 40000,
+      "change_amount": 2000,
+      "id": 6
+    },
+    {
+      "charged_amount": 95000,
+      "paid_amount": 100000,
+      "change_amount": 5000,
+      "id": 7
+    },
+    {
+      "charged_amount": 14000,
+      "paid_amount": 100000,
+      "change_amount": 86000,
+      "id": 8
+    },
+    {
+      "charged_amount": 38000,
+      "paid_amount": 40000,
+      "change_amount": 2000,
+      "id": 9
+    },
+    {
+      "charged_amount": 50000,
+      "paid_amount": 50000,
+      "change_amount": 0,
+      "id": 10
+    },
+    {
+      "charged_amount": 29000,
+      "paid_amount": 30000,
+      "change_amount": 1000,
+      "id": 11
+    },
+    {
+      "charged_amount": 31000,
+      "paid_amount": 32000,
+      "change_amount": 1000,
+      "id": 12
+    },
+    {
+      "charged_amount": 10000,
+      "paid_amount": 20000,
+      "change_amount": 10000,
+      "id": 13
     }
   ],
   "transaction_details": [
@@ -406,6 +460,139 @@
       "quantity": 3,
       "subtotal": 7500,
       "id": 11
+    },
+    {
+      "productId": 35,
+      "transactionId": 5,
+      "quantity": 1,
+      "subtotal": 2500,
+      "id": 12
+    },
+    {
+      "productId": 9,
+      "transactionId": 6,
+      "quantity": 1,
+      "subtotal": 19000,
+      "id": 13
+    },
+    {
+      "productId": 10,
+      "transactionId": 6,
+      "quantity": 1,
+      "subtotal": 19000,
+      "id": 14
+    },
+    {
+      "productId": 21,
+      "transactionId": 7,
+      "quantity": 2,
+      "subtotal": 38000,
+      "id": 15
+    },
+    {
+      "productId": 25,
+      "transactionId": 7,
+      "quantity": 3,
+      "subtotal": 57000,
+      "id": 16
+    },
+    {
+      "productId": 1,
+      "transactionId": 8,
+      "quantity": 1,
+      "subtotal": 14000,
+      "id": 17
+    },
+    {
+      "productId": 24,
+      "transactionId": 9,
+      "quantity": 1,
+      "subtotal": 19000,
+      "id": 18
+    },
+    {
+      "productId": 17,
+      "transactionId": 9,
+      "quantity": 1,
+      "subtotal": 19000,
+      "id": 19
+    },
+    {
+      "productId": 9,
+      "transactionId": 10,
+      "quantity": 1,
+      "subtotal": 19000,
+      "id": 20
+    },
+    {
+      "productId": 5,
+      "transactionId": 10,
+      "quantity": 1,
+      "subtotal": 16000,
+      "id": 21
+    },
+    {
+      "productId": 4,
+      "transactionId": 10,
+      "quantity": 1,
+      "subtotal": 15000,
+      "id": 22
+    },
+    {
+      "productId": 1,
+      "transactionId": 11,
+      "quantity": 1,
+      "subtotal": 14000,
+      "id": 23
+    },
+    {
+      "productId": 2,
+      "transactionId": 11,
+      "quantity": 1,
+      "subtotal": 15000,
+      "id": 24
+    },
+    {
+      "productId": 3,
+      "transactionId": 12,
+      "quantity": 1,
+      "subtotal": 16000,
+      "id": 25
+    },
+    {
+      "productId": 4,
+      "transactionId": 12,
+      "quantity": 1,
+      "subtotal": 15000,
+      "id": 26
+    },
+    {
+      "productId": 34,
+      "transactionId": 13,
+      "quantity": 1,
+      "subtotal": 2500,
+      "id": 27
+    },
+    {
+      "productId": 33,
+      "transactionId": 13,
+      "quantity": 1,
+      "subtotal": 2500,
+      "id": 28
+    },
+    {
+      "productId": 32,
+      "transactionId": 13,
+      "quantity": 1,
+      "subtotal": 2500,
+      "id": 29
+    },
+    {
+      "productId": 31,
+      "transactionId": 13,
+      "quantity": 1,
+      "subtotal": 2500,
+      "id": 30
     }
   ]
 }

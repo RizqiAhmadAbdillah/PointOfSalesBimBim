@@ -4,6 +4,7 @@ import Dashboard from "./Dashboard";
 import Transactions from "./Transactions";
 import Settings from "./Settings";
 import { NAVS } from "../features/navSlice";
+import Products from "./Products";
 
 function Main() {
   return (
@@ -21,6 +22,8 @@ function CurrentPage() {
       return <Dashboard />;
     case NAVS.TRANSACTION:
       return <Transactions />;
+    case NAVS.PRODUCTS:
+      return <Products />;
     case NAVS.SETTINGS:
       return <Settings />;
     default:

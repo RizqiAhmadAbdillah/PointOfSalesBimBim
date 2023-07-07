@@ -8,7 +8,7 @@ function Nav(props) {
       <div
         onClick={props.onClick}
         className={`
-        flex flex-col w-24 justify-between gap-2 items-center p-4 hover:bg-gray-200 ${
+        flex flex-col w-24 justify-between gap-2 items-center p-4 cursor-pointer ${
           props.value === nav.currentNav ? "bg-gray-200" : ""
         } ${props.className} `}
       >

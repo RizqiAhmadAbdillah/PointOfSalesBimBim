@@ -172,7 +172,6 @@ function Cart() {
             text="Checkout"
             variant="primary"
             onClick={() => clickHandler()}
-            className="flex w-full font-semibold"
           />
         </div>
       </div>

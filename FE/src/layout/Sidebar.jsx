@@ -3,10 +3,12 @@ import Nav from "../components/Nav";
 import CartSvg from "../assets/CartSvg";
 import SettingsSvg from "../assets/SettingsSvg";
 import DashboardSvg from "../assets/DashboardSvg";
+import ProductsSvg from "../assets/ProductsSvg";
 import { useDispatch } from "react-redux";
 import {
   NAVS,
   setToDashboard,
+  setToProducts,
   setToSettings,
   setToTransaction,
 } from "../features/navSlice";
@@ -31,6 +33,12 @@ function Sidebar() {
             text="Transactions"
             value={NAVS.TRANSACTION}
             onClick={() => dispatch(setToTransaction())}
+          />
+          <Nav
+            icon={<ProductsSvg />}
+            text="Products"
+            value={NAVS.PRODUCTS}
+            onClick={() => dispatch(setToProducts())}
           />
           <Nav
             icon={<SettingsSvg />}

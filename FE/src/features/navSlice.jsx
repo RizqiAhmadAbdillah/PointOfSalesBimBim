@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const NAVS = {
   DASHBOARD: 1,
   TRANSACTION: 2,
-  SETTINGS: 3,
+  PRODUCTS: 3,
+  SETTINGS: 4,
 };
 
 const initialState = {
@@ -20,11 +21,18 @@ export const navSlice = createSlice({
     setToTransaction: (state) => {
       state.currentNav = NAVS.TRANSACTION;
     },
+    setToProducts: (state) => {
+      state.currentNav = NAVS.PRODUCTS;
+    },
     setToSettings: (state) => {
       state.currentNav = NAVS.SETTINGS;
     },
   },
 });
-export const { setToDashboard, setToTransaction, setToSettings } =
-  navSlice.actions;
+export const {
+  setToDashboard,
+  setToTransaction,
+  setToProducts,
+  setToSettings,
+} = navSlice.actions;
 export default navSlice.reducer;

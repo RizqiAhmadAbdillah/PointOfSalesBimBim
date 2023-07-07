@@ -74,7 +74,7 @@ function Transactions() {
       <div
         className={`${
           isDetailOpen ? "w-2/3" : "w-full"
-        } max-h-[calc(100vh-32px)] ms-32 flex flex-col gap-4 relative`}
+        } ms-32 flex flex-col gap-4 relative`}
       >
         <div id="main__header" className="flex justify-between">
           <h1 id="header__title" className="font-bold text-2xl">
@@ -117,42 +117,46 @@ function Transactions() {
             </li>
           </ul>
         </div>
-        <main className="bg-white rounded-xl p-4 h-full overflow-x-hidden">
+        <main className="bg-white rounded-xl p-4 max-h-[calc(100vh-88px)]">
           <table className="table-auto capitalize w-full">
             <thead className="sticky top-0 bg-white">
               <tr>
-                <th className="p-2">#</th>
-                <th className="p-2">charged amount</th>
-                <th className="p-2">paid amount</th>
-                <th className="p-2">change amount</th>
-                <th className="p-2">detail</th>
+                <th className="p-2 text-center">#</th>
+                <th className="p-2 text-left">charged amount</th>
+                <th className="p-2 text-left">paid amount</th>
+                <th className="p-2 text-left">change amount</th>
+                <th className="p-2 text-left">detail</th>
               </tr>
             </thead>
-            <tbody>
-              {transactions.map((transaction, index) => (
-                <tr
-                  key={transaction.id}
-                  className="odd:bg-gray-100 even:bg-white"
-                >
-                  <td className="text-center font-semibold">{++index}</td>
-                  <td className="p-2">{`Rp.${transaction.charged_amount}`}</td>
-                  <td className="p-2">{`Rp.${transaction.paid_amount}`}</td>
-                  <td className="p-2">{`Rp.${transaction.change_amount}`}</td>
-                  <td className="flex justify-center p-2">
-                    <Button
-                      text="Detail"
-                      variant="info"
-                      onClick={() => {
-                        setTransaction(transaction);
-                        setIsDetailOpen(true);
-                      }}
-                      className="px-2 py-1 text-sm font-semibold"
-                    />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
           </table>
+          <div className="max-h-[calc(80vh-4px)] overflow-y-auto">
+            <table className="table-auto capitalize w-full">
+              <tbody>
+                {transactions.map((transaction, index) => (
+                  <tr
+                    key={transaction.id}
+                    className="odd:bg-gray-100 even:bg-white"
+                  >
+                    <td className="text-center font-semibold">{++index}</td>
+                    <td className="p-2">{`Rp.${transaction.charged_amount}`}</td>
+                    <td className="p-2">{`Rp.${transaction.paid_amount}`}</td>
+                    <td className="p-2">{`Rp.${transaction.change_amount}`}</td>
+                    <td className="flex justify-center p-2">
+                      <Button
+                        text="Detail"
+                        variant="info"
+                        onClick={() => {
+                          setTransaction(transaction);
+                          setIsDetailOpen(true);
+                        }}
+                        className="px-2 py-1 text-sm font-semibold"
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </main>
       </div>
       {isDetailOpen ? (

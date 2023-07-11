@@ -148,9 +148,8 @@ function Products() {
 
   useEffect(() => {
     getProducts();
-    getProductDetail();
     getCategories();
-  }, [sortBy, keyword, category, isDescending, isDetailOpen, isModalOpen]);
+  }, [sortBy, keyword, category, isDescending, isDetailOpen, isModalOpen, productDetail]);
   return (
     <>
       <div
@@ -309,7 +308,7 @@ function Products() {
                     className="border border-gray-400 rounded p-2"
                   >
                     {categories.map((category) => (
-                      <option value={Number(category.id)}>
+                      <option key={category.id} value={Number(category.id)}>
                         {category.name}
                       </option>
                     ))}

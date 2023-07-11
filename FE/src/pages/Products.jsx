@@ -75,10 +75,11 @@ function Products() {
   };
 
   const [values, setValues] = useState({
+    id: 0,
     name: "",
-    categoryId: 0,
-    price: 0,
-    stock: 0,
+    categoryId: 1,
+    price: "",
+    stock: "",
     image: "",
   });
 
@@ -93,7 +94,7 @@ function Products() {
     };
     await (isAddProduct
       ? axios.post("http://localhost:3000/products", inputData)
-      : axios.put("http://localhost:3000/products", inputData)
+      : axios.put(`http://localhost:3000/products/${values.id}`, inputData)
     )
       .then((response) => {
         Swal.fire({
@@ -149,7 +150,16 @@ function Products() {
   useEffect(() => {
     getProducts();
     getCategories();
-  }, [sortBy, keyword, category, isDescending, isDetailOpen, isModalOpen, productDetail]);
+  }, [
+    sortBy,
+    keyword,
+    category,
+    isDescending,
+    isDetailOpen,
+    isModalOpen,
+    productDetail,
+    values,
+  ]);
   return (
     <>
       <div
@@ -168,6 +178,13 @@ function Products() {
                 text="Add Product"
                 iconLeft={<AddSvg />}
                 onClick={() => {
+                  setValues({
+                    name: "",
+                    categoryId: 1,
+                    price: "",
+                    stock: "",
+                    image: "",
+                  });
                   setIsAddProduct(true);
                   setIsModalOpen(true);
                 }}
@@ -247,7 +264,7 @@ function Products() {
                         text="Edit"
                         variant="primary"
                         onClick={() => {
-                          getProductDetail(product.id);
+                          setValues(product);
                           setIsAddProduct(false);
                           setIsModalOpen(true);
                         }}
@@ -290,7 +307,7 @@ function Products() {
                   <label htmlFor="name">Name</label>
                   <input
                     {...register("name")}
-                    value={productDetail.name}
+                    value={values.name}
                     onChange={(e) =>
                       setValues({ ...values, name: e.target.value })
                     }
@@ -301,7 +318,7 @@ function Products() {
                   <label htmlFor="categoryId">Category</label>
                   <select
                     {...register("categoryId")}
-                    value={productDetail.categoryId}
+                    value={values.categoryId}
                     onChange={(e) =>
                       setValues({ ...values, categoryId: e.target.value })
                     }
@@ -318,7 +335,7 @@ function Products() {
                   <label htmlFor="image">Image</label>
                   <input
                     {...register("image")}
-                    value={productDetail.image}
+                    value={values.image}
                     onChange={(e) =>
                       setValues({ ...values, image: e.target.value })
                     }
@@ -331,7 +348,7 @@ function Products() {
                     type="number"
                     min="0"
                     {...register("price", { min: 0 })}
-                    value={productDetail.price}
+                    value={values.price}
                     onChange={(e) =>
                       setValues({ ...values, price: e.target.value })
                     }
@@ -344,7 +361,7 @@ function Products() {
                     type="number"
                     min="0"
                     {...register("stock", { min: 0 })}
-                    value={productDetail.stock}
+                    value={values.stock}
                     onChange={(e) =>
                       setValues({ ...values, stock: e.target.value })
                     }

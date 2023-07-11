@@ -301,14 +301,6 @@
       "price": 2500,
       "stock": 20,
       "image": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a0ddd102-173f-4c7a-9120-1efc097c4da5_Go-Biz_20210118_111013.jpeg?auto=format"
-    },
-    {
-      "name": "Black Coffee",
-      "categoryId": 2,
-      "price": 8000,
-      "stock": 11,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG",
-      "id": 36
     }
   ],
   "transactions": [

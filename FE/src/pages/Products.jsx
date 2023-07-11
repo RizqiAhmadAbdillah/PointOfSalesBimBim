@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { ALL_CATEGORY } from "../enums";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 import Button from "../components/Button";
 import SortDescSvg from "../assets/SortDescSvg";
 import SortAscSvg from "../assets/SortAscSvg";
@@ -47,9 +48,6 @@ function Products() {
           break;
       }
     }
-    if (category !== ALL_CATEGORY) {
-      baseParams.categoryId = category;
-    }
     return baseParams;
   };
   const getProducts = async () => {
@@ -68,9 +66,90 @@ function Products() {
       .catch((error) => console.log(error.message));
   };
 
+  const [categories, setCategories] = useState({});
+  const getCategories = async () => {
+    axios
+      .get("http://localhost:3000/categories")
+      .then((response) => setCategories(response.data))
+      .catch((error) => console.log(error.message));
+  };
+
+  const [values, setValues] = useState({
+    name: "",
+    categoryId: 0,
+    price: 0,
+    stock: 0,
+    image: "",
+  });
+
+  const { register, handleSubmit } = useForm();
+  const onSubmit = async (data) => {
+    const inputData = {
+      name: data.name,
+      categoryId: Number(data.categoryId),
+      price: Number(data.price),
+      stock: Number(data.stock),
+      image: data.image,
+    };
+    await (isAddProduct
+      ? axios.post("http://localhost:3000/products", inputData)
+      : axios.put("http://localhost:3000/products", inputData)
+    )
+      .then((response) => {
+        Swal.fire({
+          icon: "success",
+          title: "Data has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+        Swal.fire({
+          icon: "error",
+          title: "Something went wrong",
+          text: "Please wait a moment while we fix the issue",
+          confirmButtonText: "Ok",
+        });
+      });
+    setIsModalOpen(false);
+  };
+
+  const deleteProduct = async (productId) => {
+    await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#FF0060",
+      cancelButtonColor: "#9CA3AF",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:3000/products/${productId}`)
+          .then((response) => {
+            Swal.fire("Deleted!", "Data has been deleted.", "success").then(
+              (res) => {
+                setProducts(
+                  products.filter((product) => {
+                    return product.id !== productId;
+                  })
+                );
+              }
+            );
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
+      }
+    });
+  };
+
   useEffect(() => {
     getProducts();
     getProductDetail();
+    getCategories();
   }, [sortBy, keyword, category, isDescending, isDetailOpen, isModalOpen]);
   return (
     <>
@@ -169,6 +248,7 @@ function Products() {
                         text="Edit"
                         variant="primary"
                         onClick={() => {
+                          getProductDetail(product.id);
                           setIsAddProduct(false);
                           setIsModalOpen(true);
                         }}
@@ -177,6 +257,7 @@ function Products() {
                       <Button
                         text="Delete"
                         variant="danger"
+                        onClick={() => deleteProduct(product.id)}
                         className="px-2 py-1 text-sm"
                       />
                     </td>
@@ -189,7 +270,7 @@ function Products() {
       </div>
       {isModalOpen ? (
         <div className="fixed top-0 left-0 w-screen h-screen z-20 bg-black/40 flex justify-center items-center">
-          <div className="h-2/3 w-1/2 p-2 rounded-3xl bg-white relative">
+          <div className="h-auto w-1/2 p-2 rounded-3xl bg-white relative">
             <div id="order__header" className="flex justify-center relative">
               <h1 id="order__title" className="font-bold text-2xl text-center">
                 {`${isAddProduct ? "Add" : "Edit"} Product`}
@@ -202,22 +283,46 @@ function Products() {
               </div>
             </div>
             <aside className="flex flex-col gap-2 mt-4 p-2">
-              <form action="" className="flex flex-col gap-4">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="flex flex-col gap-4"
+              >
                 <div className="flex flex-col">
                   <label htmlFor="name">Name</label>
                   <input
-                    type="text"
-                    id="name"
-                    name="name"
+                    {...register("name")}
+                    value={productDetail.name}
+                    onChange={(e) =>
+                      setValues({ ...values, name: e.target.value })
+                    }
                     className="border border-gray-400 rounded p-2"
                   />
                 </div>
                 <div className="flex flex-col">
+                  <label htmlFor="categoryId">Category</label>
+                  <select
+                    {...register("categoryId")}
+                    value={productDetail.categoryId}
+                    onChange={(e) =>
+                      setValues({ ...values, categoryId: e.target.value })
+                    }
+                    className="border border-gray-400 rounded p-2"
+                  >
+                    {categories.map((category) => (
+                      <option value={Number(category.id)}>
+                        {category.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="flex flex-col">
                   <label htmlFor="image">Image</label>
                   <input
-                    type="text"
-                    id="image"
-                    name="image"
+                    {...register("image")}
+                    value={productDetail.image}
+                    onChange={(e) =>
+                      setValues({ ...values, image: e.target.value })
+                    }
                     className="border border-gray-400 rounded p-2"
                   />
                 </div>
@@ -226,8 +331,11 @@ function Products() {
                   <input
                     type="number"
                     min="0"
-                    id="price"
-                    name="price"
+                    {...register("price", { min: 0 })}
+                    value={productDetail.price}
+                    onChange={(e) =>
+                      setValues({ ...values, price: e.target.value })
+                    }
                     className="border border-gray-400 rounded p-2"
                   />
                 </div>
@@ -236,8 +344,11 @@ function Products() {
                   <input
                     type="number"
                     min="0"
-                    id="stock"
-                    name="stock"
+                    {...register("stock", { min: 0 })}
+                    value={productDetail.stock}
+                    onChange={(e) =>
+                      setValues({ ...values, stock: e.target.value })
+                    }
                     className="border border-gray-400 rounded p-2"
                   />
                 </div>
